@@ -1,0 +1,52 @@
+// src/components/e-commerce/CategorySidebar/CategorySidebar.module.scss
+
+.sidebar {
+  width: 220px;
+  padding-top: 20px;
+  border-right: 1px solid #e5e5e5;
+  padding-right: 16px;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.categoryList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.categoryItem {
+  margin-bottom: 4px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.categoryLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  font-size: 16px;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: #db4444;
+
+    .arrow {
+      color: #db4444;
+      transform: translateX(4px);
+    }
+  }
+}
+
+.arrow {
+  color: #666;
+  transition: all 0.2s ease;
+}
