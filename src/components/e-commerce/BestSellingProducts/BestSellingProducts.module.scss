@@ -1,0 +1,111 @@
+// src/components/e-commerce/BestSellingProducts/BestSellingProducts.module.scss
+
+// SCSS Variables
+$primary-red: #db4444;
+$secondary-bg: #f5f5f5;
+$text-dark: #000000;
+$text-light: #7d8184;
+$border-color: #e8e8e8;
+
+.bestSelling {
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+}
+
+.sectionTag {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.redBar {
+  width: 20px;
+  height: 40px;
+  background-color: $primary-red;
+  border-radius: 4px;
+}
+
+.tagText {
+  color: $primary-red;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3.75rem;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: $text-dark;
+  line-height: 1.2;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.viewAllButton {
+  background-color: $primary-red;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: darken($primary-red, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(219, 68, 68, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.875rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}

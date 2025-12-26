@@ -1,0 +1,125 @@
+// src/components/e-commerce/Services/Services.module.scss
+
+// SCSS Variables
+$primary-red: #db4444;
+$text-dark: #000000;
+$text-light: #7d8184;
+$bg-light: #f5f5f5;
+
+.services {
+  margin: 5rem 0;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    margin: 3rem 0;
+    padding: 0 0.5rem;
+  }
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    gap: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+
+    .iconCircle {
+      background-color: $primary-red;
+      border-color: $primary-red;
+      color: #ffffff;
+    }
+
+    .iconWrapper::before {
+      transform: scale(1.1);
+      opacity: 0.3;
+    }
+  }
+}
+
+.iconWrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(219, 68, 68, 0.15);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+}
+
+.iconCircle {
+  position: relative;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  background-color: $text-dark;
+  border: 2px solid $text-dark;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    width: 56px;
+    height: 56px;
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
+
+.serviceTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: $text-dark;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.serviceDescription {
+  font-size: 0.875rem;
+  color: $text-light;
+  margin: 0;
+  line-height: 1.5;
+  max-width: 250px;
+
+  @media (max-width: 768px) {
+    font-size: 0.8125rem;
+  }
+}

@@ -1,4 +1,4 @@
-// src/components/e-commerce/FlashSale/FlashSale.module.scss
+// src/components/common/ProductCard/ProductCard.module.scss
 
 // SCSS Variables
 $primary-red: #db4444;
@@ -8,149 +8,9 @@ $text-light: #7d8184;
 $border-color: #e8e8e8;
 $star-color: #ffad33;
 
-.flashSales {
-  margin-bottom: 4rem;
-  padding: 0 1rem;
-
-  @media (max-width: 768px) {
-    margin-bottom: 2rem;
-    padding: 0 0.5rem;
-  }
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 2.5rem;
-  gap: 2rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-}
-
-.titleSection {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-
-  @media (max-width: 768px) {
-    gap: 1rem;
-  }
-}
-
-.badge {
-  background-color: $primary-red;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  white-space: nowrap;
-
-  @media (max-width: 768px) {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.75rem;
-  }
-}
-
-.title {
-  font-size: 2.25rem;
-  font-weight: 600;
-  margin: 0;
-  color: $text-dark;
-  line-height: 1.2;
-
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-}
-
-.timer {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  @media (max-width: 768px) {
-    gap: 0.75rem;
-    width: 100%;
-  }
-}
-
-.timeUnit {
+.productCard {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.label {
-  font-size: 0.75rem;
-  color: $text-light;
-  text-transform: capitalize;
-  font-weight: 500;
-
-  @media (max-width: 768px) {
-    font-size: 0.625rem;
-  }
-}
-
-.value {
-  font-size: 2rem;
-  font-weight: 700;
-  color: $text-dark;
-  min-width: 3rem;
-  text-align: center;
-  line-height: 1;
-
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-    min-width: 2.25rem;
-  }
-}
-
-.separator {
-  color: $primary-red;
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0 0.25rem;
-  line-height: 1;
-
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-    margin: 0 0.125rem;
-  }
-}
-
-.productsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.875rem;
-  margin-bottom: 3.75rem;
-
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 1rem;
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.productCard {
-  background-color: transparent;
-  border-radius: 4px;
-  overflow: visible;
   transition: transform 0.3s ease;
 
   &:hover {
@@ -166,6 +26,8 @@ $star-color: #ffad33;
   background-color: $secondary-bg;
   border-radius: 4px;
   margin-bottom: 0;
+  display: block;
+  text-decoration: none;
 
   img {
     width: 100%;
@@ -235,11 +97,17 @@ $star-color: #ffad33;
   justify-content: center;
   transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: $text-dark;
 
   &:hover {
     background-color: $primary-red;
     color: #ffffff;
     transform: scale(1.1);
+  }
+
+  &.active {
+    background-color: $primary-red;
+    color: #ffffff;
   }
 
   @media (max-width: 768px) {
@@ -254,6 +122,10 @@ $star-color: #ffad33;
 }
 
 .addToCart {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   background-color: $text-dark;
   color: #ffffff;
@@ -263,8 +135,11 @@ $star-color: #ffad33;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  margin-top: -4px;
-  border-radius: 0 0 4px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  z-index: 2;
 
   &:hover {
     background-color: $primary-red;
@@ -273,6 +148,11 @@ $star-color: #ffad33;
   @media (max-width: 768px) {
     padding: 0.5rem;
     font-size: 0.75rem;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
   }
 }
 
@@ -281,6 +161,17 @@ $star-color: #ffad33;
 
   @media (max-width: 768px) {
     padding: 0.75rem 0.25rem 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      .name {
+        color: $primary-red;
+      }
+    }
   }
 }
 
@@ -292,6 +183,7 @@ $star-color: #ffad33;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.2s ease;
 
   @media (max-width: 768px) {
     font-size: 0.875rem;
@@ -305,7 +197,7 @@ $star-color: #ffad33;
   margin-bottom: 0.5rem;
 }
 
-.discountedPrice {
+.price {
   color: $primary-red;
   font-weight: 600;
   font-size: 1rem;
@@ -362,38 +254,5 @@ $star-color: #ffad33;
 
   @media (max-width: 768px) {
     font-size: 0.75rem;
-  }
-}
-
-.viewAll {
-  display: flex;
-  justify-content: center;
-  padding: 1rem 0;
-}
-
-.viewAllBtn {
-  background-color: $primary-red;
-  color: #ffffff;
-  border: none;
-  padding: 1rem 3rem;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: darken($primary-red, 10%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-
-  @media (max-width: 768px) {
-    padding: 0.75rem 2rem;
-    font-size: 0.875rem;
   }
 }

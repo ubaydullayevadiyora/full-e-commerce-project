@@ -1,0 +1,244 @@
+// src/components/e-commerce/FeaturedBanner/FeaturedBanner.module.scss
+
+// SCSS Variables
+$primary-green: #00ff66;
+$text-dark: #000000;
+$text-light: #fafafa;
+
+.featuredBanner {
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+}
+
+.bannerContainer {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  border-radius: 8px;
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+
+  @media (max-width: 1024px) {
+    padding: 3rem;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+    min-height: auto;
+  }
+
+  // Background pattern
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 255, 102, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.content {
+  flex: 1;
+  max-width: 500px;
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+.category {
+  color: $primary-green;
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.title {
+  color: $text-light;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 2rem 0;
+
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.timer {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.timeCircle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 62px;
+  height: 62px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  @media (max-width: 768px) {
+    width: 52px;
+    height: 52px;
+  }
+
+  @media (max-width: 480px) {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+.timeValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: $text-dark;
+  line-height: 1;
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
+}
+
+.timeLabel {
+  font-size: 0.6875rem;
+  color: $text-dark;
+  margin-top: 0.125rem;
+  font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 0.625rem;
+  }
+}
+
+.buyButton {
+  display: inline-block;
+  background-color: $primary-green;
+  color: $text-dark;
+  padding: 1rem 3rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 255, 102, 0.3);
+
+  &:hover {
+    background-color: lighten($primary-green, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 102, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.875rem 2.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+.imageWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.imageGlow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 255, 102, 0.2) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.productImage {
+  position: relative;
+  max-width: 100%;
+  height: auto;
+  width: 450px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+  animation: float 6s ease-in-out infinite;
+
+  @media (max-width: 1024px) {
+    width: 350px;
+  }
+
+  @media (max-width: 768px) {
+    width: 280px;
+  }
+
+  @media (max-width: 480px) {
+    width: 220px;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

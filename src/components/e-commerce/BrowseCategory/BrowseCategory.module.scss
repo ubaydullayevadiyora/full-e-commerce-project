@@ -1,0 +1,193 @@
+// src/components/e-commerce/BrowseCategory/BrowseCategory.module.scss
+
+// SCSS Variables
+$primary-red: #db4444;
+$secondary-bg: #f5f5f5;
+$text-dark: #000000;
+$text-light: #7d8184;
+$border-color: #e8e8e8;
+
+.browseCategory {
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+}
+
+.sectionTag {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.redBar {
+  width: 20px;
+  height: 40px;
+  background-color: $primary-red;
+  border-radius: 4px;
+}
+
+.tagText {
+  color: $primary-red;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3.75rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: $text-dark;
+  line-height: 1.2;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.navButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navButton {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: $secondary-bg;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: $text-dark;
+
+  &:hover {
+    background-color: $primary-red;
+    color: #ffffff;
+  }
+
+  &:active {
+    background-color: darken($primary-red, 10%);
+  }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.875rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.categoryCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: $text-dark;
+  min-height: 145px;
+
+  &:hover,
+  &.active {
+    background-color: $primary-red;
+    border-color: $primary-red;
+    color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(219, 68, 68, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem 0.75rem;
+    min-height: 120px;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 100px;
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+
+  .categoryCard:hover &,
+  .categoryCard.active & {
+    transform: scale(1.1);
+  }
+
+  svg {
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+    }
+
+    @media (max-width: 480px) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.categoryName {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
+}
