@@ -21,4 +21,6 @@ export interface UpdateUser {
   password: string;
 }
 
-export interface DeleteUser {}
+export interface DeleteUser {
+  id: string;
+}

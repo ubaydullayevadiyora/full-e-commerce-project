@@ -1,0 +1,444 @@
+// src/app/about/page.module.scss
+
+// SCSS Variables
+$primary-red: #db4444;
+$text-dark: #000000;
+$text-light: #7d8184;
+$border-color: #e5e5e5;
+
+.aboutPage {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 0.5rem;
+  }
+}
+
+// Breadcrumb
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  font-size: 0.875rem;
+  color: $text-light;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.separator {
+  color: $text-light;
+}
+
+.current {
+  color: $text-dark;
+  font-weight: 500;
+}
+
+// Our Story Section
+.storySection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+  margin-bottom: 5rem;
+
+  @media (max-width: 1024px) {
+    gap: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.storyContent {
+  max-width: 550px;
+}
+
+.storyTitle {
+  font-size: 3.375rem;
+  font-weight: 600;
+  margin: 0 0 2.5rem 0;
+  color: $text-dark;
+  line-height: 1.2;
+
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.storyText {
+  font-size: 1rem;
+  line-height: 1.625;
+  color: $text-dark;
+  margin: 0 0 1.5rem 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9375rem;
+  }
+}
+
+.storyImage {
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+}
+
+// Statistics Section
+.statsSection {
+  margin-bottom: 5rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 3rem;
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.875rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+
+  &:hover {
+    border-color: $primary-red;
+    box-shadow: 0 8px 16px rgba(219, 68, 68, 0.15);
+    transform: translateY(-4px);
+  }
+
+  &.highlight {
+    background-color: $primary-red;
+    border-color: $primary-red;
+    color: #ffffff;
+
+    .statValue,
+    .statLabel {
+      color: #ffffff;
+    }
+
+    .iconCircle {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.statIcon {
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+  }
+}
+
+.iconCircle {
+  position: relative;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+
+  @media (max-width: 768px) {
+    width: 56px;
+    height: 56px;
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: $text-dark;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: $text-dark;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
+}
+
+// Team Section
+.teamSection {
+  margin-bottom: 5rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 3rem;
+  }
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.875rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.teamCard {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+}
+
+.teamImageWrapper {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.teamInfo {
+  text-align: center;
+}
+
+.teamName {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  color: $text-dark;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.teamRole {
+  font-size: 1rem;
+  color: $text-dark;
+  margin: 0 0 1rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
+}
+
+.teamSocial {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.socialLink {
+  color: $text-dark;
+  transition: color 0.2s ease;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-red;
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  &.active {
+    background-color: $primary-red;
+    border: 2px solid rgba(219, 68, 68, 0.3);
+    box-shadow: 0 0 0 4px rgba(219, 68, 68, 0.1);
+  }
+}
+
+// Services Section
+.servicesSection {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 768px) {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5.5rem;
+
+  @media (max-width: 1024px) {
+    gap: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.serviceItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+
+    .serviceIconCircle {
+      background-color: $primary-red;
+      color: #ffffff;
+    }
+  }
+}
+
+.serviceIconWrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(219, 68, 68, 0.15);
+    border-radius: 50%;
+  }
+}
+
+.serviceIconCircle {
+  position: relative;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  background-color: $text-dark;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.serviceTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: $text-dark;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.serviceDesc {
+  font-size: 0.875rem;
+  color: $text-light;
+  margin: 0;
+  max-width: 250px;
+
+  @media (max-width: 768px) {
+    font-size: 0.8125rem;
+  }
+}

@@ -1,0 +1,499 @@
+// src/app/wishlist/page.module.scss
+
+// SCSS Variables
+$primary-red: #db4444;
+$primary-green: #00ff66;
+$text-dark: #000000;
+$text-light: #7d8184;
+$border-color: #e5e5e5;
+$bg-light: #f5f5f5;
+$star-color: #ffad33;
+
+.wishlistPage {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 0.5rem;
+  }
+}
+
+// Breadcrumb
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  font-size: 0.875rem;
+  color: $text-light;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.separator {
+  color: $text-light;
+}
+
+.current {
+  color: $text-dark;
+  font-weight: 500;
+}
+
+// Wishlist Header
+.wishlistHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.75rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.wishlistTitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0;
+  color: $text-dark;
+}
+
+.moveAllBtn {
+  padding: 1rem 3rem;
+  background-color: transparent;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $primary-red;
+    background-color: $primary-red;
+    color: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0.875rem 2rem;
+    font-size: 0.875rem;
+  }
+}
+
+// Wishlist Grid
+.wishlistGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.875rem;
+  margin-bottom: 5rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wishlistCard {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: $bg-light;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    .addToCartBtn {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.discountBadge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background-color: $primary-red;
+  color: #ffffff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.deleteBtn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 2;
+
+  &:hover {
+    background-color: $primary-red;
+    color: #ffffff;
+    transform: scale(1.1);
+  }
+}
+
+.addToCartBtn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: $text-dark;
+  color: #ffffff;
+  border: none;
+  padding: 0.625rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $primary-red;
+  }
+}
+
+.cardInfo {
+  padding: 0 0.25rem;
+}
+
+.productName {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  color: $text-dark;
+}
+
+.priceRow {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.price {
+  color: $primary-red;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.originalPrice {
+  color: $text-light;
+  text-decoration: line-through;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+// Empty State
+.emptyState {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: $text-light;
+  font-size: 1.125rem;
+}
+
+// Recommended Section
+.recommendedSection {
+  margin-top: 3rem;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.75rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+}
+
+.sectionTag {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.redBar {
+  width: 20px;
+  height: 40px;
+  background-color: $primary-red;
+  border-radius: 4px;
+}
+
+.tagText {
+  color: $text-dark;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.seeAllBtn {
+  padding: 0.875rem 3rem;
+  background-color: transparent;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $primary-red;
+    background-color: $primary-red;
+    color: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.75rem 2rem;
+    font-size: 0.875rem;
+  }
+}
+
+// Recommended Grid
+.recommendedGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.875rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.productImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: $bg-light;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    .productAddToCartBtn {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  z-index: 2;
+  color: #ffffff;
+
+  &.discountBadge {
+    background-color: $primary-red;
+  }
+
+  &.newBadge {
+    background-color: $primary-green;
+    color: $text-dark;
+  }
+}
+
+.productActions {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 3;
+}
+
+.actionBtn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $primary-red;
+    color: #ffffff;
+    transform: scale(1.1);
+  }
+}
+
+.productAddToCartBtn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: $text-dark;
+  color: #ffffff;
+  border: none;
+  padding: 0.625rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $primary-red;
+  }
+}
+
+.productInfo {
+  padding: 0 0.25rem;
+}
+
+.productTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  color: $text-dark;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productPrices {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.productPrice {
+  color: $primary-red;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.productOriginalPrice {
+  color: $text-light;
+  text-decoration: line-through;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.productRating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stars {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.starFilled {
+  color: $star-color;
+  font-size: 1rem;
+}
+
+.starEmpty {
+  color: #d1d5db;
+  font-size: 1rem;
+}
+
+.reviewCount {
+  color: $text-light;
+  font-size: 0.875rem;
+  font-weight: 500;
+}

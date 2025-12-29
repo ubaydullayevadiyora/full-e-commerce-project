@@ -16,12 +16,12 @@ export class ApiUrls {
   public static PRODUCT: string = "/product";
   public static CREATE_PRODUCT: string = `${this.PRODUCT}/createProduct`;
   public static GET_ONE_PRODUCT: string = `${this.PRODUCT}/getProduct`;
-  public static GET_ONE_PRODUCT_BY_ID = (id: string) => `${this.GET_ONE_PRODUCT}/${id}`;
+  // public static GET_ONE_PRODUCT_BY_ID = (id: string) => `${this.GET_ONE_PRODUCT}/${id}`;
   public static ALL_PRODUCT: string = `${this.PRODUCT}/allProduct`;
   public static EDIT_PRODUCT: string = `${this.PRODUCT}/editProduct`;
-  public static EDIT_PRODUCT_BY_ID = (id: string) => `${this.EDIT_PRODUCT}/${id}`;
+  // public static EDIT_PRODUCT_BY_ID = (id: string) => `${this.EDIT_PRODUCT}/${id}`;
   public static DELETE_PRODUCT: string = `${this.PRODUCT}/deleteProduct`;
-  public static DELETE_PRODUCT_BY_ID = (id: string) => `${this.DELETE_PRODUCT}/${id}`;
+  // public static DELETE_PRODUCT_BY_ID = (id: string) => `${this.DELETE_PRODUCT}/${id}`;
 
   //Category api's
   public static CATEGORY: string = "/category";

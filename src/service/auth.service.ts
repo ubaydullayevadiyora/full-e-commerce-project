@@ -1,6 +1,6 @@
 import { ApiUrls } from "../apis/api-urls";
 import { apiConfig } from "../apis/config";
-import { Login, Logout, Register } from "../types/auth.type";
+import { Login, Logout, Register } from "../types/auth";
 
 const api = apiConfig();
 
